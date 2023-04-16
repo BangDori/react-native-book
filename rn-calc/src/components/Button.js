@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Pressable, StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
