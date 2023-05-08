@@ -1,4 +1,5 @@
 import { Alert, Image, Keyboard, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import TestImage from '../../assets/main.png'; // ES6 Module
 import Input, {
   IconNames,
@@ -9,13 +10,17 @@ import SafeInputView from '../components/SafeInputView';
 import { useEffect, useRef, useState } from 'react';
 import Button from '../components/Button';
 import { signIn } from '../api/auth';
+import { useUserContext } from '../contexts/UserContext';
 
 const SignInScreen = () => {
+  const insets = useSafeAreaInsets();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { setUser } = useUserContext();
 
   useEffect(() => {
     setDisabled(!email || !password);
@@ -27,8 +32,8 @@ const SignInScreen = () => {
         setIsLoading(true);
         Keyboard.dismiss();
         const data = await signIn(email, password);
-        console.log(data);
         setIsLoading(false);
+        setUser(data);
       } catch (error) {
         Alert.alert('로그인 실패', error, [
           { text: '확인', onPress: () => setIsLoading(false) },
@@ -39,7 +44,12 @@ const SignInScreen = () => {
 
   return (
     <SafeInputView>
-      <View style={styles.container}>
+      <View
+        style={[
+          styles.container,
+          { paddingTop: insets.top, paddingBottom: insets.bottom },
+        ]}
+      >
         <Image source={TestImage} style={styles.image} />
 
         <Input

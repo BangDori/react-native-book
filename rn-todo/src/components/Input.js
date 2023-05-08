@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { BLACK, GRAY, PRIMARY } from '../color';
+import { BLACK, GRAY, PRIMARY } from '../colors';
 import { forwardRef, useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
