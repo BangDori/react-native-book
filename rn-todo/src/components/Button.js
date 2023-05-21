@@ -1,4 +1,9 @@
-import { ActivityIndicator, Pressable, StyleSheet, Text } from 'react-native';
+import {
+  ActivityIndicator, // 요청 진행 중일 때 버튼의 타이틀 대신 ActivityIndicator가 나타나도록 하기 위한 컴포넌트
+  Pressable,
+  StyleSheet,
+  Text,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import { DANGER, GRAY, PRIMARY, WHITE } from '../colors';
 
@@ -16,8 +21,8 @@ const Button = ({ title, onPress, disabled, isLoading, buttonType }) => {
       style={({ pressed }) => [
         styles.container,
         { backgroundColor: colors[buttonType].DEFAULT },
-        pressed && { backgroundColor: colors[buttonType].DARK },
-        disabled && { backgroundColor: colors[buttonType].LIGHT, opacity: 0.6 },
+        pressed && { backgroundColor: colors[buttonType].DARK }, // 클릭되었을 때, 색상 설정
+        disabled && { backgroundColor: colors[buttonType].LIGHT, opacity: 0.6 }, // 비활성화 상태일 때, 색상 설정
       ]}
       disabled={disabled}
     >

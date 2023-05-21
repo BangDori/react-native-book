@@ -6,8 +6,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended"
+    "plugin:react/jsx-runtime", // JSX 사용
+    "plugin:react-hooks/recommended" // Hook 사용 규치 검사
   ],
   "overrides": [],
   "parserOptions": {

@@ -1,7 +1,7 @@
 import {
   Image,
   KeyboardAvoidingView,
-  Platform,
+  Platform, // React Native에서 제공하는 API로, 플랫폼에 따라 코드를 다르게 적용할 때 사용
   StyleSheet,
   TextInput,
   View,
@@ -12,6 +12,12 @@ const TestAvoid = () => {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
+      /**
+       * Platform이 ios일 경우 padding값 설정
+       * padding은 키보드 높이만큼 paddingBottom 설정
+       * height는 컴포넌트의 높이를 키보드 높이만큼 뺀 값으로 설정
+       * position은 bottom의 값을 변경해서 화면의 위치를 옮기는 방법
+       */
       behavior={Platform.select({ ios: 'padding' })}
       contentContainerStyle={{ flex: 1 }}
     >
