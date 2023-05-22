@@ -9,7 +9,7 @@ const SettingsScreen = () => {
     <View style={styles.container}>
       <Button
         title="로그아웃"
-        onPress={() => setUser(null)}
+        onPress={() => setUser(null)} // 로그아웃 시 로그인 중인 유저 제거
         buttonType={ButtonTypes.DANGER}
       />
     </View>

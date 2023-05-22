@@ -13,14 +13,14 @@ import { signIn } from '../api/auth';
 import { useUserContext } from '../contexts/UserContext';
 
 const SignInScreen = () => {
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets(); // 화면을 안전한 영역으로 제한하기 위한 패딩 값
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { setUser } = useUserContext();
+  const { setUser } = useUserContext(); // Context에서 setUser 가져오기
 
   useEffect(() => {
     // email과 password 값이 입력되었을 때, 로그인 버튼이 활성화되도록 설정
