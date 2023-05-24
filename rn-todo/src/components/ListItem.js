@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo } from 'react'; // memo를 사용하여 불 필요한 리렌더링을 방지
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -6,6 +6,7 @@ import { DANGER, BLACK, PRIMARY, GRAY } from '../colors';
 
 const ListItem = memo(({ item, onDelete, onToggle }) => {
   const checkboxProps = {
+    // 체크되었는지를 구분하기 위해 삼항 연산자를 사용
     name: item.isDone ? 'checkbox-marked' : 'checkbox-blank-outline',
     color: item.isDone ? PRIMARY.DEFAULT : BLACK,
     size: 20,

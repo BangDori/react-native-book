@@ -1,5 +1,5 @@
 import { Alert, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context'; // 화면 아래에 있는 막대 선과 겹치지 않도록 하기 위해 사용
 import EmptyList from '../components/EmptyList';
 import List from '../components/List';
 import InputFAB from '../components/InputFAB';
